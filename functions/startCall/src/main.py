@@ -25,7 +25,6 @@ from agora_token_builder import RtcTokenBuilder
 # This is your Appwrite function
 # It's executed each time we get a request
 def generate_agora_token(app_id, app_certificate, channel_name, user_id, expiration_time_in_seconds=3600):
-    try :
       
         agora_key = app_id
         agora_secret = app_certificate
@@ -45,8 +44,7 @@ def generate_agora_token(app_id, app_certificate, channel_name, user_id, expirat
 
         return RtcTokenBuilder.buildTokenWithUid(agora_key, agora_secret, agora_channel_name, agora_user_id, agora_user_id,
                                              expiration_time)
-    except Exception as e:
-     return e
+   
 
 
 def send_data_only_message(registration_token, custom_data):
@@ -79,8 +77,6 @@ def send_data_only_message(registration_token, custom_data):
         print("Veri içeren mesaj gönderme hatası:", response.text)
         
 def main(context):
-  try: 
-   
     client = Client()
     client.set_endpoint("http://162.19.255.235/v1")
     client.set_project("6506073c9158e012f6d3")
@@ -177,9 +173,4 @@ def main(context):
 
 
     return {"users": custom_data}     
-  except Exception as e:
-        return {
-        "error": str(e),
-        "message": "An error occurred while processing the request.",
-        "stack_trace": traceback.format_exc()
-    }
+ 
