@@ -17,7 +17,7 @@ from datetime import datetime, timedelta
 # It's executed each time we get a request
 def main(context):
    
-  print("Context verileri: %s", context)
+  context.log()
   client = Client()
   client.set_endpoint("http://162.19.255.235/v1")
   client.set_project("6506073c9158e012f6d3")
