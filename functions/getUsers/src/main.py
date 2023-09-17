@@ -34,8 +34,11 @@ def main(context):
   storage = Storage(client)
   teams = Teams(client)
   users = Users(client)
-  gender =context.req.body.get("gender")
- 
+
+  parsed_data = json.loads(context.req.body)
+
+# "gender" parametresini alın
+  gender = parsed_data.get("gender")
 
     # online olanlar
 
