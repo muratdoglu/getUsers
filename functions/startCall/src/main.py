@@ -106,12 +106,12 @@ def main(context):
 
     callFilter = [Query.equal('id', callId)]
     print(callId)
-    callData = database.list_documents('chat-1', "002", callFilter)
+    callData = database.list_documents('6506087581ce0a10ef2a', "650609fe206748d55496", callFilter)
     callObject = callData['documents'][0]
     print(callObject)
 
     channelFilter = [Query.equal('id', channelId)]
-    channelData = database.list_documents('chat-1', "003", channelFilter)
+    channelData = database.list_documents('6506087581ce0a10ef2a', "65060a9ed858f29533db", channelFilter)
     channelObject = channelData['documents'][0]
     print(channelObject)
 
@@ -145,15 +145,15 @@ def main(context):
         'agoraTokenGuest': user2_token,
         # Diğer alanlar ve değerleri
     }
-    result = database.update_document('chat-1', "003", documentId, updated_data)
+    result = database.update_document('6506087581ce0a10ef2a', "65060a9ed858f29533db", documentId, updated_data)
 
     hostFilter = [Query.equal('userId', hostUserId)]
-    hostData = database.list_documents('chat-1', "001", hostFilter)
+    hostData = database.list_documents('6506087581ce0a10ef2a', "6506088f22805d12b4fe", hostFilter)
     hostObject = hostData['documents'][0]
     print(hostObject)
 
     guestFilter = [Query.equal('userId', guestUserId)]
-    guestData = database.list_documents('chat-1', "001", guestFilter)
+    guestData = database.list_documents('6506087581ce0a10ef2a', "6506088f22805d12b4fe", guestFilter)
     guestObject = guestData['documents'][0]
     print(guestObject)
 
