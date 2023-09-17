@@ -36,7 +36,8 @@ def main(context):
   users = Users(client)
   gender =1
  
-  print(context.req)
+  context.log(json.dumps(context.req.body)) 
+  print(context.req.body)
     # online olanlar
 
   allUsers = []
