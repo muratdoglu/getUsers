@@ -17,7 +17,7 @@ from datetime import datetime, timedelta
 # It's executed each time we get a request
 def main(context):
    
-  context.log()
+  print("Context verileri: %s", context)
   client = Client()
   client.set_endpoint("http://162.19.255.235/v1")
   client.set_project("6506073c9158e012f6d3")
@@ -35,7 +35,7 @@ def main(context):
   storage = Storage(client)
   teams = Teams(client)
   users = Users(client)
-  gender =0
+  gender =context.req.query.gender
  
     # online olanlar
 
