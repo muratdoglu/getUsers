@@ -26,6 +26,7 @@ from datetime import datetime, timedelta
   If an error is thrown, a response with code 500 will be returned.
 """
 
+
 def main(req, res):
   client = Client()
   client.set_endpoint("http://162.19.255.235/v1")
