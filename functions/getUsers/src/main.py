@@ -32,7 +32,6 @@ def main(req, res):
   client.set_project("6506073c9158e012f6d3")
   client.set_key("f70c6d75b3cd8878c999dd211a18509d52269c25d4bb5f4fc8e8edc42fec27e7087b29e51ec6fbb52546f520757aa46b3624902f5b58cfc8a0fc1d3b30b5cd20602f6b6e156603551c40b97d99534d841bb1e175093f954d7cc9d3fb41a78e75bc60740d67b4b69ef911392029892d6a8ae0698cc981df34d100b2fccc45aa5b")
   client.set_self_signed(True)
-    
   # You can remove services you don't use
   account = Account(client)
   avatars = Avatars(client)
