@@ -175,6 +175,7 @@ def main(context):
 
     send_data_only_message(registration_token, custom_data)
 
+
     return {"users": custom_data}     
   except Exception as e:
         return {
