@@ -35,7 +35,7 @@ def main(context):
   storage = Storage(client)
   teams = Teams(client)
   users = Users(client)
-  gender =0
+  gender =context.req.query.gender
  
     # online olanlar
 
