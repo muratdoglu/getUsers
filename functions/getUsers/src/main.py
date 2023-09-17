@@ -1,7 +1,6 @@
-import json
 from appwrite.client import Client
-
-# You can remove imports of services you don't use
+import os
+import json
 from appwrite.services.account import Account
 from appwrite.services.avatars import Avatars
 from appwrite.services.databases import Databases
@@ -13,26 +12,19 @@ from appwrite.services.teams import Teams
 from appwrite.services.users import Users
 from appwrite.query import Query
 from datetime import datetime, timedelta
-"""
-  'req' variable has:
-    'headers' - object with request headers
-    'payload' - request body data as a string
-    'variables' - object with function variables
 
-  'res' variable has:
-    'send(text, status)' - function to return text response. Status code defaults to 200
-    'json(obj, status)' - function to return JSON response. Status code defaults to 200
-
-  If an error is thrown, a response with code 500 will be returned.
-"""
-
-
-def main(req, res):
+# This is your Appwrite function
+# It's executed each time we get a request
+def main(context):
+   
+  
   client = Client()
   client.set_endpoint("http://162.19.255.235/v1")
   client.set_project("6506073c9158e012f6d3")
   client.set_key("f70c6d75b3cd8878c999dd211a18509d52269c25d4bb5f4fc8e8edc42fec27e7087b29e51ec6fbb52546f520757aa46b3624902f5b58cfc8a0fc1d3b30b5cd20602f6b6e156603551c40b97d99534d841bb1e175093f954d7cc9d3fb41a78e75bc60740d67b4b69ef911392029892d6a8ae0698cc981df34d100b2fccc45aa5b")
   client.set_self_signed(True)
+
+    
   # You can remove services you don't use
   account = Account(client)
   avatars = Avatars(client)
@@ -43,8 +35,7 @@ def main(req, res):
   storage = Storage(client)
   teams = Teams(client)
   users = Users(client)
-  payload = json.loads(req.payload)
-  gender = payload['gender']
+  gender =context.req.query['gender']
  
     # online olanlar
 
@@ -132,10 +123,7 @@ def main(req, res):
     del user["createdDate"]
     del user["lastOnline"]
 
-  print(allUsers)
-  
-  return res.json({
+  print(allUsers)   
+  return context.res.json({
     "users": allUsers,
   })
-  
-  
